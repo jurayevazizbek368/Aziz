@@ -424,7 +424,8 @@ async function getQoderUsage(accessToken) {
  */
 async function getKiroUsage(accessToken: string) {
   try {
-    const response = await fetch("https://codewhisperer.us-east-1.amazonaws.com/getUserCredits", {
+    // Regional Amazon Q host, matching the rest of the Kiro integration (#19607).
+    const response = await fetch("https://q.us-east-1.amazonaws.com/getUserCredits", {
       method: "GET",
       headers: {
         Authorization: `Bearer ${accessToken}`,
